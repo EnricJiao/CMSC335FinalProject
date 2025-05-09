@@ -22,8 +22,8 @@ app.get("/signup", (request, response) => {
 
 });
 
-app.post("/send-email", async (req, res) => {
-    const userEmail = "form input that doesn't exist yet"; // FIX THIS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!J
+app.post("/spam", async (req, res) => {
+    let {email, numEmails} = req.body; // FIX THIS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!J
     try {
         const quoteRes = await fetch('https://api.kanye.rest');
         const data = await quoteRes.json();
@@ -40,10 +40,10 @@ app.post("/send-email", async (req, res) => {
             }
         });
 
-        for (let i = 0; i < 5; i++) { // send 5 spam emails, change later with form input
+        for (let i = 0; i < Number(numEmails); i++) { // send 5 spam emails, change later with form input
             await transport.sendMail({
                 from: 'kanyespams335@gmail.com',
-                to: userEmail,
+                to: email,
                 subject: 'kanye says...',
                 text: quote
             });
