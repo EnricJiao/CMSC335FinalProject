@@ -28,11 +28,9 @@ app.get("/signup", (request, response) => {
 app.post("/spam", async (req, res) => {
     let {email, numEmails} = req.body; // FIX THIS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!J
     try {
-        const quoteRes = await fetch('https://api.kanye.rest');
-        const data = await quoteRes.json();
-        const quote = data.quote;
+        
 
-        // sentiment analysis
+        
 
         //send emails
         const transport = nodemailer.createTransport({
@@ -43,7 +41,13 @@ app.post("/spam", async (req, res) => {
             }
         });
 
-        for (let i = 0; i < Number(numEmails); i++) {
+        for (let i = 0; i < Number(numEmails); i++) { // send 5 spam emails, change later with form input
+            const quoteRes = await fetch('https://api.kanye.rest');
+            const data = await quoteRes.json();
+            const quote = data.quote;
+
+            // sentiment analysis needs to happen
+
             await transport.sendMail({
                 from: 'kanyespams335@gmail.com',
                 to: email,
