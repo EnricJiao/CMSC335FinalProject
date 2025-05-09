@@ -5,6 +5,7 @@ const app = express();
 app.set('view engine', 'ejs');
 app.set('views', './templates');
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static("public"));
 
 const Sentiment = require('sentiment');
 const sentiment = new Sentiment();
