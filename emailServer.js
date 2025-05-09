@@ -6,6 +6,9 @@ app.set('view engine', 'ejs');
 app.set('views', './templates');
 app.use(express.urlencoded({ extended: true }));
 
+const Sentiment = require('sentiment');
+const sentiment = new Sentiment();
+
 
 //temporary port for local development
 const port = process.env.PORT || 4000;

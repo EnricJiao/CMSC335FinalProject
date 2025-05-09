@@ -21,7 +21,10 @@
     "ejs": "^3.1.10",
     "express": "^5.1.0",
     "mongodb": "^6.16.0",
+<<<<<<< HEAD
     "node-fetch": "^3.3.2",
+=======
+>>>>>>> refs/remotes/origin/main
     "nodemailer": "^7.0.3",
     "sentiment": "^5.0.2"
   },
