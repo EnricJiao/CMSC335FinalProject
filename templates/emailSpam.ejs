@@ -9,14 +9,14 @@
 <body>
 	<h1>Email Spammer</h1>
 
-	<form action="/signup" method="POST">
+	<form action="/spam" method="POST">
         
     
         <label>Email to spam:</label><br>
-        <input type="email" id="email" required><br><br>
+        <input type="email" id="email" name="email" required><br><br>
 
         <label>Number of emails to send:</label><br>
-        <input type="number" id="numEmails" required min="1" max="10"><br><br>
+        <input type="number" id="numEmails" name="numEmails" required min="1" max="10"><br><br>
     
         <button type="submit">Sign Up</button>
       </form>

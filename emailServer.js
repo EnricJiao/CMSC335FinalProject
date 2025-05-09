@@ -1,11 +1,10 @@
 "use strict";
-
-const express = require('express');
-const fetch = require('node-fetch');
 const nodemailer = require('nodemailer');
+const express = require('express');
 const app = express();
 app.set('view engine', 'ejs');
 app.set('views', './templates');
+app.use(express.urlencoded({ extended: true }));
 
 
 //temporary port for local development
@@ -16,7 +15,7 @@ app.listen(port, () => {
 });
 
 app.get("/", (request, response) => {
-    response.render("emailSpam.ejs");
+    response.render("emailSpam");
 });
 
 app.get("/signup", (request, response) => {
