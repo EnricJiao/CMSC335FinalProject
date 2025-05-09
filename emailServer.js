@@ -14,5 +14,9 @@ app.listen(port, () => {
 });
 
 app.get("/", (request, response) => {
-    response.render("signup");  
+    response.render("emailSpam.ejs");
+});
+
+app.get("/signup", (request, response) => {
+
 });
