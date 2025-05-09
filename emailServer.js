@@ -42,9 +42,20 @@ app.post("/spam", async (req, res) => {
         });
 
         for (let i = 0; i < Number(numEmails); i++) { // send 5 spam emails, change later with form input
-            const quoteRes = await fetch('https://api.kanye.rest');
-            const data = await quoteRes.json();
-            const quote = data.quote;
+            let isGoodQuote = false;
+            let quote;
+            
+            while(!isGoodQuote){
+                const quoteRes = await fetch('https://api.kanye.rest');
+                const data = await quoteRes.json();
+                quote = data.quote;
+
+                const result = sentiment.analyze(quote);
+                if(result.score > -4){
+                    isGoodQuote = true;
+                }
+            }
+            
 
             // sentiment analysis needs to happen
 
