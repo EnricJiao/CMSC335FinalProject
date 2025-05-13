@@ -18,6 +18,8 @@ require("dotenv").config({
  
 process.stdin.setEncoding("utf8");
 
+const router = require("./routes.js");
+app.use(router);
 
 //temporary port for local development
 const port = process.env.PORT || 4000;
@@ -26,13 +28,7 @@ app.listen(port, () => {
     console.log(`Web server started and running at http://localhost:${port}`);
 });
 
-app.get("/", async (request, response) => {
-   
 
-    response.render("signup");
-    
-    
-});
 
 app.post("/signup", (request, response) => {
     let {name, email} = request.body;
